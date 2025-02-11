@@ -1,0 +1,67 @@
+version: 3
+
+vars:
+  CFG:
+    sh: mktemp -t kubeconfig
+  OMNICFG:
+    sh: mktemp -t omnicfg
+
+tasks:
+  start-cp:
+    desc: Creates the VM for the control plane
+    cmds:
+    - ./deploy-cp.sh
+
+  start-workers:
+    desc: Creates the VMs for the workers
+    cmds:
+    - ./deploy-workers.sh
+
+  omniconfig:
+    vars: 
+      OMNI_ACCOUNT:
+        sh: ls omni | gum choose
+    cmds:
+      - cp omni/{{.OMNI_ACCOUNT}} {{.OMNICFG}}
+  kubeconfig:
+    preconditions:
+      - sh: command -v omnictl > /dev/null
+        msg: Please make sure omnictl is installed and in your $PATH.
+      - sh: command -v jq > /dev/null
+        msg: Please make sure jq is installed and in your $PATH.
+      - sh: command -v gum > /dev/null
+        msg: Please make sure gum is installed and in your $PATH.
+    vars:
+      CLUSTER_ID:
+        sh: |
+          {{- if empty .CLUSTER_ID }}
+            omnictl get cluster -o json  --omniconfig {{.OMNICFG}} | jq -r .metadata.id | gum choose --select-if-one 
+          {{- else }}
+            echo {{.CLUSTER_ID}}
+          {{end}}
+    cmds:
+      - omnictl get cluster --omniconfig {{.OMNICFG}} | grep -q {{.CLUSTER_ID}}
+      - omnictl kubeconfig --omniconfig {{.OMNICFG}} --force --merge=false -c {{.CLUSTER_ID}} {{.CFG}}
+
+  shell:
+    desc: starts a zsh session authenticated to the specified cluster in omni
+    cmds:
+      - task: omniconfig
+      - defer: rm {{.OMNICFG}}
+      - task: kubeconfig
+      - defer: rm {{.CFG}}
+      - KUBECONFIG={{.CFG}} zsh
+
+
+  k9s:
+    desc: starts a k9s authenticated to the specified cluster in omni
+    preconditions:
+      - sh: command -v k9s > /dev/null
+        msg: Please make sure k9s is installed and in your $PATH.
+    cmds:
+      - task: omniconfig
+      - defer: rm {{.OMNICFG}}
+      - task: kubeconfig
+      - defer: rm {{.CFG}}
+      - k9s --all-namespaces --kubeconfig {{.CFG}}
+

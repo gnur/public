@@ -1,0 +1,7 @@
+contexts:
+    default:
+        url: https://gnur.omni.siderolabs.io
+        auth:
+            siderov1:
+                identity: erwin@fzzbzz.dev
+context: default
