@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jsonlogger
+  labels:
+    app: jsonlogger
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: jsonlogger
+  template:
+    metadata:
+      labels:
+        app: jsonlogger
+    spec:
+      containers:
+        - name: json-logger
+          image: ghcr.io/gnur/jsonlogger:v1

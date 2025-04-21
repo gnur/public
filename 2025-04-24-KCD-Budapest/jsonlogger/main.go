@@ -2,6 +2,7 @@ package main
 
 import (
 	"log/slog"
+	"math/rand"
 	"os"
 	"time"
 )
@@ -13,6 +14,8 @@ func main() {
 	for {
 		logger.Info("current time", "id", id, "epoch", time.Now().Unix(), "count", count)
 		count += 1
-		time.Sleep(1 * time.Second)
+
+		msJitter := time.Duration(500 + rand.Intn(1000))
+		time.Sleep(msJitter * time.Millisecond)
 	}
 }
