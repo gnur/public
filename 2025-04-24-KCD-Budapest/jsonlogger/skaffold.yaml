@@ -4,7 +4,7 @@ metadata:
   name: jsonlogger
 build:
   artifacts:
-    - image: ghcr.com/gnur/public/jsonlogger
+    - image: ghcr.io/gnur/jsonlogger
       platforms:
         - linux/arm64
       context: .
