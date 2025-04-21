@@ -2,9 +2,9 @@
 
 
 
-gcloud compute instances create talos-controlplane \
+gcloud compute instances create tfq-talos-controlplane-test \
     --project=dekeijzer-xyz \
-    --zone=eu-west4-a \
+    --zone=europe-west4-a \
     --machine-type=e2-medium \
     --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
     --no-restart-on-failure \
