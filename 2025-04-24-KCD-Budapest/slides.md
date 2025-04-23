@@ -156,7 +156,8 @@ Filter based on labels
 
 # k9s advanced
 
-- plugins
+- plugins.yaml
+- stored in `~/Library/Application Support/k9s` for macOS
 
 ```bash
 #!/bin/bash
