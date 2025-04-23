@@ -14,7 +14,6 @@ paging: KCD Budapest %d / %d
 - k9s :jq log
 
 ---
-
 # Using k9s for maximum efficiency
 
 - Erwin de Keijzer
@@ -135,6 +134,36 @@ sc 'how can I live tail all the logs of the jsonlogger deployment in de the defa
 ///zellij action new-pane -f --width 90% --height 90% -x 5% -y 5% -- \
  k9s
 ```
+---
+
+# k9s basics
+
+- VIM like movement (j/k)
+- `:` for selecting the type of resource (pod / svc)
+- `/` to search in the current display (realtime filter)
+- possible actions are displayed in header
+
+---
+
+# k9s advanced
+
+Filter based on labels
+
+- `:pod state=good`
+- `:deploy env=prod`
+
+---
+
+# k9s advanced
+
+- plugins
+
+```bash
+#!/bin/bash
+///zellij action new-pane -f --width 90% --height 90% -x 5% -y 5% -- \
+bat plugins.yaml
+```
+
 
 ---
 
