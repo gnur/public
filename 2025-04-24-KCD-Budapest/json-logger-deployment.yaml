@@ -2,19 +2,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jsonlogger
+  name: json-logger
   labels:
-    app: jsonlogger
+    app: json-logger
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: jsonlogger
+      app: json-logger
   template:
     metadata:
       labels:
-        app: jsonlogger
+        app: json-logger
     spec:
       containers:
         - name: json-logger
           image: ghcr.io/gnur/jsonlogger:v1-1-gf4bc3b8
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          ports:
+            - containerPort: 8080

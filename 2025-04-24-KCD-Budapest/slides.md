@@ -23,6 +23,22 @@ paging: KCD Budapest %d / %d
 - https://dekeijzer.xyz
 
 ---
+# an ode the CLI
+
+- I'll only be using the CLI
+- I've yak shaved this completely
+- I'll tell you what most tools do as we go
+- Last slide contains links to all projects mentioned and a QR code
+
+---
+# zellij
+
+- terminal multiplexer
+- allows floating windows
+- with some config makes it behave like a native macOS app
+- see my yak shaving series at `https://dekeijzer.xyz` for more info
+
+---
 
 # slides (cli)
 
@@ -31,17 +47,13 @@ paging: KCD Budapest %d / %d
 - actually a single markdown file
 - this whole deck (and used yamls) is on github
 
-
-## code block
-~~~
-```
-echo "hoi"
-```
-~~~
-
 ---
 
 # let's get a cluster going
+
+These things tend to work better with an actual live demo. 
+
+So let's create a Talos kubernetes cluster.
 
 ```bash
 #!/bin/bash
@@ -50,30 +62,51 @@ task up
 ```
 
 ---
+# task/Taskfile & talos
+
+## task
+
+- task runner / build tool
+- easier to use than Make
+- yaml syntax
+- just works most of the time
+
+## talos
+
+- minimal linux distro made 100% to run kubernetes
+- immutable, API driven, secure
+- the best way to run kubernetes (on prem)
+- it only takes 3 minutes to launch a talos cluster on your laptop
+    - we just saw that it is actually faster :)
+
+---
+# task / talos cont
+
+```bash
+#!/bin/bash
+bat -r 0:20 Taskfile.yaml
+```
+
+---
 # kubectl
 
-- kube-control
-- kube-cuttel
+- kube cee-tee-el
+- kube control
+- kube cuttle
+- kube cuddle
 - k
-- or `k get pods` and why isn't `k` aliased in this shell to `kubectl`
-
+- or `k get pods` and why isn't `k` aliased in this shell to `kubectl` and why does this exam not have sane defaults in the shell
 
 ---
 # kubectl #2
 
-```bash
-#!/bin/bash
-///zellij action new-pane -f --width 90% --height 90% -x 5% -y 5% -- \
-kubectl get pods -o wide -A
-```
----
-# kubectl #3
-
 - `kubectl` is an extremely powerful tool
 - also quite complicated
 - even LLMs get it wrong
+- as do I
 
 ---
+
 # sc (smartcat)
 
 - cli access to LLMs
@@ -92,8 +125,6 @@ sc 'how can I live tail all the logs of the jsonlogger deployment in de the defa
 - only a singe pod
 - should be `k logs -f deployment/jsonlogger -n --all-pods`
 
-
-
 ---
 # k9s intro
 
@@ -103,14 +134,6 @@ sc 'how can I live tail all the logs of the jsonlogger deployment in de the defa
 #!/bin/bash
 ///zellij action new-pane -f --width 90% --height 90% -x 5% -y 5% -- \
  k9s
-
-```
-
----
-# slides plaatjes
-
-```bash
-imgcat screenshot.png
 ```
 
 ---
@@ -123,6 +146,9 @@ imgcat screenshot.png
 - https://github.com/maaslalani/slides
 - https://github.com/gnur/public/tree/main/2025-04-24-KCD-Budapest
 - https://dekeijzer.xyz
+- https://zellij.dev/
+- https://taskfile.dev/
+- https://www.talos.dev/
 - https://www.linkedin.com/in/erwindekeijzer/
 
 ```bash
