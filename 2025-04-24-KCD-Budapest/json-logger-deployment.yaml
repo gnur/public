@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
         - name: json-logger
-          image: ghcr.io/gnur/jsonlogger:v1
+          image: ghcr.io/gnur/jsonlogger:v1-1-gf4bc3b8
