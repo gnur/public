@@ -26,6 +26,8 @@ tasks:
       - kubectl apply -f bad-deployment.yaml
       - kubectl apply -f json-logger-deployment.yaml
       - kubectl apply -f sleeppod.yaml
+      - kubectl apply -f victoria-metrics.yaml
+      - kubectl apply -f echoo.yaml
 
   down:
     deps:
