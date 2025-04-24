@@ -138,9 +138,10 @@ sc 'how can I live tail all the logs of the jsonlogger deployment in de the defa
 
 # k9s basics
 
-- VIM like movement (j/k)
+- VIM like movement (j/k/gg/G)
 - `:` for selecting the type of resource (pod / svc)
 - `/` to search in the current display (realtime filter)
+- `J` to jump to parent of currently selected item
 - possible actions are displayed in header
 
 ---
@@ -165,6 +166,12 @@ Filter based on labels
 bat plugins.yaml
 ```
 
+---
+# k9s obscure
+
+- use `:pulse` to have a dashboard kind if view of what is going on
+- use `:xray pod/deploy` to have a tree view of pod / deployments
+- use `/<query>` in log view to filter your logs
 
 ---
 
@@ -179,6 +186,7 @@ bat plugins.yaml
 - https://zellij.dev/
 - https://taskfile.dev/
 - https://www.talos.dev/
+- https://atuin.sh/
 - https://www.linkedin.com/in/erwindekeijzer/
 
 ```bash
