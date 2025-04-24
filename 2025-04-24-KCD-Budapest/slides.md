@@ -3,8 +3,6 @@ author: Erwin de Keijzer
 date: YYYY-MM-dd
 paging: KCD Budapest %d / %d
 ---
-
----
 # Using k9s for maximum efficiency
 
 - Erwin de Keijzer
