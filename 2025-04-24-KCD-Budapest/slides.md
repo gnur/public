@@ -4,20 +4,13 @@ date: YYYY-MM-dd
 paging: KCD Budapest %d / %d
 ---
 
-# TODO
-
-- k9s intro
-- kubectx
-- kubens
-- k9s :ctx
-- k9s :foute deployment
-- k9s :jq log
-
 ---
 # Using k9s for maximum efficiency
 
 - Erwin de Keijzer
 - Principal Consultant @ TrueFullstaq (NL)
+- Hobby Backend Developer (Go, Python, typescript)
+- Reluctant Frontend Developer (nuxt, vue)
 - Semi-Pro Yak Shaver
 - https://dekeijzer.xyz
 
@@ -123,6 +116,12 @@ sc 'how can I live tail all the logs of the jsonlogger deployment in de the defa
 - is actually wrong
 - only a singe pod
 - should be `k logs -f deployment/jsonlogger -n --all-pods`
+---
+
+# kubectx
+
+- `kubectl config use-context <context>`
+- `kubectx` or `kctx` with proper alias :)
 
 ---
 # k9s intro
@@ -178,6 +177,7 @@ bat plugins.yaml
 # references
 
 - https://k9scli.io/
+- https://carapace.sh/
 - https://github.com/ahmetb/kubectx
 - https://github.com/efugier/smartcat
 - https://github.com/maaslalani/slides
