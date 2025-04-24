@@ -179,6 +179,7 @@ bat plugins.yaml
 - https://github.com/ahmetb/kubectx
 - https://github.com/efugier/smartcat
 - https://github.com/maaslalani/slides
+- https://github.com/gitui-org/gitui
 - https://github.com/gnur/public/tree/main/2025-04-24-KCD-Budapest
 - https://dekeijzer.xyz
 - https://zellij.dev/
