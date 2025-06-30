@@ -16,17 +16,7 @@ paging: KCD Budapest %d / %d
 # an ode the CLI
 
 - I'll only be using the CLI
-- I've yak shaved this completely
-- I'll tell you what most tools do as we go
 - Last slide contains links to all projects mentioned and a QR code
-
----
-# zellij
-
-- terminal multiplexer
-- allows floating windows
-- with some config makes it behave like a native macOS app
-- see my yak shaving series at `https://dekeijzer.xyz` for more info
 
 ---
 
@@ -36,20 +26,6 @@ paging: KCD Budapest %d / %d
 - it allows inline code blocks with execution
 - actually a single markdown file
 - this whole deck (and used yamls) is on github
-
----
-
-# let's get a cluster going
-
-These things tend to work better with an actual live demo. 
-
-So let's create a Talos kubernetes cluster.
-
-```bash
-#!/bin/bash
-///zellij action new-pane -f --width 90% --height 90% -x 5% -y 5% -- \
-task up
-```
 
 ---
 # task/Taskfile & talos
@@ -67,15 +43,6 @@ task up
 - immutable, API driven, secure
 - the best way to run kubernetes (on prem)
 - it only takes 3 minutes to launch a talos cluster on your laptop
-    - we just saw that it is actually faster :)
-
----
-# task / talos cont
-
-```bash
-#!/bin/bash
-bat -r 0:20 Taskfile.yaml
-```
 
 ---
 # kubectl
@@ -126,11 +93,6 @@ sc 'how can I live tail all the logs of the jsonlogger deployment in de the defa
 
 `k9s` is a tui (terminal user interface) for kubernetes.
 
-```bash
-#!/bin/bash
-///zellij action new-pane -f --width 90% --height 90% -x 5% -y 5% -- \
- k9s
-```
 ---
 
 # k9s basics
@@ -157,12 +119,6 @@ Filter based on labels
 - plugins.yaml
 - stored in `~/Library/Application Support/k9s` for macOS
 
-```bash
-#!/bin/bash
-///zellij action new-pane -f --width 90% --height 90% -x 5% -y 5% -- \
-bat plugins.yaml
-```
-
 ---
 # k9s obscure
 
@@ -180,14 +136,14 @@ bat plugins.yaml
 - https://github.com/efugier/smartcat
 - https://github.com/maaslalani/slides
 - https://github.com/gitui-org/gitui
-- https://github.com/gnur/public/tree/main/2025-04-24-KCD-Budapest
 - https://dekeijzer.xyz
 - https://zellij.dev/
 - https://taskfile.dev/
 - https://www.talos.dev/
 - https://atuin.sh/
 - https://www.linkedin.com/in/erwindekeijzer/
+- https://www.truefullstaq.com/nl/events/edgecase-2025
 
 ```bash
-echo 'https://github.com/gnur/public/tree/main/2025-04-24-KCD-Budapest' | qrencode -t utf8
+echo 'https://github.com/gnur/public/tree/main/2025-07-03-DCND-Utrecht' | qrencode -t utf8
 ```
