@@ -1,0 +1,67 @@
+plugins:
+  holmesgpt:
+    shortCut: Shift-H
+    description: Ask HolmesGPT
+    scopes:
+      - all
+    command: bash
+    background: false
+    confirm: false
+    args:
+      - -c
+      - |
+        holmes ask "why is $NAME of $RESOURCE_NAME in -n $NAMESPACE not working as expected, how could I fix this, please be short in your answer, don't repeat yourself and don't give a summary at the end" --model=gemini/gemini-2.0-flash | awk '/^User/{flag=1} flag'
+        echo "Press 'q' to exit"
+        while : ; do
+        read -n 1 k <&1
+        if [[ $k = q ]] ; then
+        break
+        fi
+        done
+  jqlogs:
+    shortCut: Ctrl-J
+    confirm: false
+    description: "Logs (jq)"
+    scopes:
+      - pod
+    command: sh
+    background: false
+    args:
+      - -c
+      - "kubectl logs -f $NAME -n $NAMESPACE --context $CONTEXT |jq -SR '. as $line | try (fromjson) catch $line'"
+  remove_finalizers:
+    shortCut: Ctrl-F
+    confirm: true
+    dangerous: true
+    scopes:
+      - all
+    description: |
+      Removes all finalizers from selected resource. Be careful when using it,
+      it may leave dangling resources or delete them
+    command: kubectl
+    background: true
+    args:
+      - patch
+      - --context
+      - $CONTEXT
+      - --namespace
+      - $NAMESPACE
+      - $RESOURCE_NAME.$RESOURCE_GROUP
+      - $NAME
+      - -p
+      - '{"metadata":{"finalizers":null}}'
+      - --type
+      - merge
+  debug:
+    shortCut: Shift-D
+    description: Add debug container
+    dangerous: true
+    scopes:
+      - containers
+    command: bash
+    background: false
+    confirm: true
+    args:
+      - -c
+      - "kubectl --kubeconfig=$KUBECONFIG debug -it --context $CONTEXT -n=$NAMESPACE $POD --target=$NAME --image=nicolaka/netshoot:v0.13 --share-processes -- bash"
+
