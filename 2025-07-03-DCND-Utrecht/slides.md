@@ -1,14 +1,14 @@
 ---
 author: Erwin de Keijzer
-date: YYYY-MM-dd
-paging: KCD Budapest %d / %d
+date: TrueFullstaq YYYY-MM-dd 
+paging: Dutch Cloud Native Day Utrecht %d / %d
 ---
 # Using k9s for maximum efficiency
 
 - Erwin de Keijzer
-- Principal Consultant @ TrueFullstaq (NL)
+- Principal Consultant @ TrueFullstaq
 - Hobby Backend Developer (Go, Python, typescript)
-- Reluctant Frontend Developer (nuxt, vue)
+- Reluctant Frontend Developer (nuxt, vue, tailwindcss)
 - Semi-Pro Yak Shaver
 - https://dekeijzer.xyz
 

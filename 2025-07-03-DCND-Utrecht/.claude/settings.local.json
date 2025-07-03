@@ -4,7 +4,8 @@
       "mcp__kubernetes__resources_get",
       "mcp__kubernetes__pods_list_in_namespace",
       "mcp__kubernetes__events_list",
-      "mcp__kubernetes__pods_get"
+      "mcp__kubernetes__pods_get",
+      "mcp__kubernetes__pods_log"
     ],
     "deny": []
   }
