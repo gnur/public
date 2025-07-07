@@ -13,7 +13,7 @@ paging: Dutch Cloud Native Day Utrecht %d / %d
 - https://dekeijzer.xyz
 
 ---
-# an ode the CLI
+# an ode the CLI (and Rio)
 
 - I'll only be using the CLI
 - Last slide contains links to all projects mentioned and a QR code
